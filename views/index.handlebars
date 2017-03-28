@@ -1,0 +1,120 @@
+<h1>Games Monitor</h1>
+
+<h2>Add New</h2>
+
+<form action="/" method="post">
+	<select name="action" id="choose-action">
+		<option value="game">Game</option>
+		<option value="feature">Feature</option>
+		<option value="platform">Platform</option>
+		<option value="genre">Genre</option>
+		<option value="session">Session</option>
+	</select>
+
+	<div id="addGame" data-update="game" class="choose-action-options" style="display: block;">
+		<input type="text" name="gameTitle" placeholder="Title">
+
+		<select name="chooseGenre" id="chooseGenre">
+			{{#each genres}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+		<select name="choosePlatform" id="choosePlatform">
+			{{#each platforms}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+		<input type="date" name="releaseDate" placeholder="Release Date">
+		<select name="chooseExtension" id="chooseExtension">
+			<option disabled selected value> -- choose game -- </option>
+			{{#each games}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+		<div id="chooseFeatures">
+			{{#each features}}
+			<input type="checkbox" name="chooseFeatures[]" value="{{_id}}"> {{title}}
+			{{/each}}
+		</div>
+	</div>
+
+	<div id="addSession" data-update="session" class="choose-action-options">
+		<select name="chooseGamePlayed" id="chooseGamePlayed">
+			{{#each games}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+		<label for="purchaseDate">Purchase Date:</label>
+		<input type="date" name="purchaseDate">
+		<label for="purchaseDate">Start Date:</label>
+		<input type="date" name="startDate">
+		<label for="purchaseDate">Finish Date:</label>
+		<input type="date" name="finishDate">
+		<input type="number" name="hoursPlayed" placeholder="Hours Played">
+	</div>
+
+	<div id="addFeature" data-update="feature" class="choose-action-options">
+		<input type="text" name="featureTitle" placeholder="Title">
+		<input type="text" name="description" placeholder="description">
+	</div>
+
+	<div id="addPlatform" data-update="platform" class="choose-action-options">
+		<input type="text" name="platformTitle" placeholder="Title">
+		<label for="platformReleaseDate">Release Date:</label>
+		<input type="date" name="platformReleaseDate">
+	</div>
+
+	<div id="addGenre" data-update="genre" class="choose-action-options">
+		<input type="text" name="genreTitle" placeholder="Title">
+	</div>
+
+	<input type="submit" value="Submit">
+</form>
+
+
+{{#if games}}
+<div class="game">
+	{{#each games}}
+	<h2 class="game-title">{{title}}</h2>
+	{{#if releaseDate}}<em>{{releaseDate}}</em><br>{{/if}}
+	{{#if genres}}
+	<strong>Genres:</strong>
+	<ul class="game-genres">
+		{{#each genres}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#if platforms}}
+	<strong>Platforms:</strong>
+	<ul class="game-platforms">
+		{{#each platforms}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#if features}}
+	<strong>Platforms:</strong>
+	<ul class="game-features">
+		{{#each features}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{/each}}
+</div>
+{{/if}}
+
+{{#if sessions}}
+<div class="sessions">
+	{{#each sessions}}
+	<h3>{{game.title}}</h3>
+	<ul>
+		<li><strong>Purchased:</strong> {{purchaseDate}}</li>
+		<li><strong>Started:</strong> {{startDate}}</li>
+		<li><strong>Finished:</strong> {{finishDate}}</li>
+		<li><strong>Hours played:</strong> {{hoursPlayed}}</li>
+	</ul>
+	{{/each}}
+</div>
+{{/if}}

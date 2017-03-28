@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "body-parser": "^1.17.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.6",
+    "knockout": "^3.4.1",
+    "mongoose": "^4.8.4",
+    "nodemon": "^1.11.0"
+  },
+  "name": "games-monitor",
+  "version": "1.0.0",
+  "description": "A means of tracking the games I've played and am playing and rate them based on a multitude of different tags",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
