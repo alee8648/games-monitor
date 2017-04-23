@@ -14,9 +14,14 @@
   "version": "1.0.0",
   "description": "A means of tracking the games I've played and am playing and rate them based on a multitude of different tags",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^3.1.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp"
   },
   "author": "",
   "license": "ISC"

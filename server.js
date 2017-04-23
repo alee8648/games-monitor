@@ -8,11 +8,14 @@ mongoose.Promise = Promise;
 var app = express();
 
 // Set variables
-var port = 3000;
+var port = 8081;
 
 // Allow form submissions
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Setting the public folder for stylesheets, scripts and images
+app.use (express.static('build'));
 
 // Set global connection variable
 global.db = (global.db ? global.db : mongoose.createConnection('mongodb://localhost/games-monitor'));
@@ -120,7 +123,6 @@ app.all('/', function(req, res) {
 	});
 });
 
-// Listen on port 3000
 app.listen(port, function() {
 	console.log("Example app listening on port " + port);
 });
