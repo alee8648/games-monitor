@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var nodemon = require('gulp-nodemon');
 var browserSync = require('browser-sync').create();
@@ -32,6 +33,23 @@ gulp.task('sass', function() {
 		.pipe(gulp.dest('build'));
 });
 
+gulp.task('scripts:plugins', function() {
+	console.log("Compiling plugins JS files");
+	return gulp.src([
+			'node_modules/jquery/dist/jquery.min.js',
+			'node_modules/datatables.net/js/jquery.dataTables.js'
+		])
+		.pipe(concat('plugins.js'))
+		.pipe(gulp.dest('develop/scripts/'));
+});
 
+gulp.task('scripts', function() {
+	return gulp.src([
+		'develop/scripts/plugins.js',
+		'develop/scripts/global.js'
+	])
+	.pipe(concat('scripts.js'))
+	.pipe(gulp.dest('build'));
+});
 
 gulp.task('default', ['sass', 'start', 'serve']);
