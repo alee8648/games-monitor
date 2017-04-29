@@ -52,4 +52,4 @@ gulp.task('scripts', function() {
 	.pipe(gulp.dest('build'));
 });
 
-gulp.task('default', ['sass', 'start', 'serve']);
+gulp.task('default', ['sass', 'scripts:plugins', 'scripts', 'start', 'serve']);
