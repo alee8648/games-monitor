@@ -1,0 +1,46 @@
+{{#if game}}
+
+<div class="game">
+	<h1 class="game-title">{{game.title}}</h1>
+	{{#if game.releaseDate}}<em>{{game.releaseDate}}</em><br>{{/if}}
+	{{#if game.genres}}
+	<strong>Genres:</strong>
+	<ul class="game-genres">
+		{{#each game.genres}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#if game.platforms}}
+	<strong>Platforms:</strong>
+	<ul class="game-platforms">
+		{{#each game.platforms}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#if game.features}}
+	<strong>Features:</strong>
+	<ul class="game-features">
+		{{#each game.features}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+</div>
+
+{{#if game.sessions}}
+<div class="sessions">
+	{{#each game.sessions}}
+	<h3>{{game.title}}</h3>
+	<ul>
+		<li><strong>Purchased:</strong> {{purchaseDate}}</li>
+		<li><strong>Started:</strong> {{startDate}}</li>
+		<li><strong>Finished:</strong> {{finishDate}}</li>
+		<li><strong>Hours played:</strong> {{hoursPlayed}}</li>
+	</ul>
+	{{/each}}
+</div>
+{{/if}}
+
+{{/if}}

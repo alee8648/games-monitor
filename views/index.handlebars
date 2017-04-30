@@ -75,7 +75,7 @@
 {{#if games}}
 <div class="game">
 	{{#each games}}
-	<h2 class="game-title">{{title}}</h2>
+	<h2 class="game-title"><a href="/game/{{_id}}">{{title}}</a></h2>
 	{{#if releaseDate}}<em>{{releaseDate}}</em><br>{{/if}}
 	{{#if genres}}
 	<strong>Genres:</strong>

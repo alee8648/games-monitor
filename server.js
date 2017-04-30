@@ -125,7 +125,7 @@ app.all('/', function(req, res) {
 });
 
 // Other routes
-
+app.use('/game/', require('./routes/view-game.js'));
 
 
 app.use(router);
