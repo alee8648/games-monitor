@@ -1,5 +1,6 @@
 // Import modules
 var express = require('express');
+var router = express.Router();
 var exphbs = require('express-handlebars');
 var mongoose = require('mongoose');
 mongoose.Promise = Promise;
@@ -122,6 +123,12 @@ app.all('/', function(req, res) {
 		});
 	});
 });
+
+// Other routes
+
+
+
+app.use(router);
 
 app.listen(port, function() {
 	console.log("Example app listening on port " + port);
