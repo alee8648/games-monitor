@@ -1,2 +1,11 @@
 body {
   background-color: white; }
+
+input, select, fieldset {
+  display: block;
+  min-width: 300px;
+  margin-bottom: 20px; }
+
+input[type=checkbox] {
+  display: inline-block;
+  margin-right: 5px; }
