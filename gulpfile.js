@@ -10,8 +10,8 @@ gulp.task('serve', ['sass'], function() {
 		proxy: "localhost:8081"
 	});
 
-	gulp.watch(["develop/styles/*.scss"], ['sass']); //.on('change', browserSync.reload);
-	// gulp.watch("develop/scripts/*.js", ['scripts']).on('change', browserSync.reload);
+	gulp.watch(["develop/styles/*.scss"], ['sass', 'reload']); //.on('change', browserSync.reload);
+	gulp.watch("develop/scripts/*.js", ['scripts', 'reload']); //.on('change', browserSync.reload);
 });
 
 gulp.task('start', function () {
@@ -31,6 +31,10 @@ gulp.task('sass', function() {
 	return gulp.src('develop/styles/styles.scss')
 		.pipe(sass())
 		.pipe(gulp.dest('build'));
+});
+
+gulp.task('reload', function() {
+	browserSync.reload();
 });
 
 gulp.task('scripts:plugins', function() {
