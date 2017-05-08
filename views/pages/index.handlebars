@@ -1,0 +1,48 @@
+<h2>The games</h2>
+
+{{#if games}}
+<div class="game">
+	{{#each games}}
+	<h2 class="game-title"><a href="/game/{{_id}}">{{title}}</a></h2>
+	{{#if releaseDate}}<em>{{releaseDate}}</em><br>{{/if}}
+	{{#if genres}}
+	<strong>Genres:</strong>
+	<ul class="game-genres">
+		{{#each genres}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#if platforms}}
+	<strong>Platforms:</strong>
+	<ul class="game-platforms">
+		{{#each platforms}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{#if features}}
+	<strong>Platforms:</strong>
+	<ul class="game-features">
+		{{#each features}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	{{/each}}
+</div>
+{{/if}}
+
+{{#if sessions}}
+<div class="sessions">
+	{{#each sessions}}
+	<h3>{{game.title}}</h3>
+	<ul>
+		<li><strong>Purchased:</strong> {{purchaseDate}}</li>
+		<li><strong>Started:</strong> {{startDate}}</li>
+		<li><strong>Finished:</strong> {{finishDate}}</li>
+		<li><strong>Hours played:</strong> {{hoursPlayed}}</li>
+	</ul>
+	{{/each}}
+</div>
+{{/if}}

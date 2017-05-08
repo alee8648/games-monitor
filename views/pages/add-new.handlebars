@@ -1,0 +1,95 @@
+<h2>Add New</h2>
+
+<form action="/" method="post">
+	<label for="chooseAction">Choose an action</label>	
+	<select name="action" id="chooseAction">
+		<option value="game" selected>Game</option>
+		<option value="feature">Feature</option>
+		<option value="platform">Platform</option>
+		<option value="genre">Genre</option>
+		<option value="session">Session</option>
+	</select>
+
+	<div id="addGame" data-update="game" class="choose-action-options" style="display: block;">
+		<label for="gameTitle">Game Title</label>
+		<input type="text" name="gameTitle" id="gameTitle" placeholder="Title">
+
+		<label for="chooseGenre">Genre</label>
+		<select name="chooseGenre" id="chooseGenre">
+			{{#each genres}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+
+		<label for="choosePlatform">Platform</label>
+		<select name="choosePlatform" id="choosePlatform">
+			{{#each platforms}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+
+		<label for="releaseDate">Release Date</label>
+		<input type="date" name="releaseDate" id="releaseDate" placeholder="Release Date">
+
+		<label for="chooseExtension">Parent game (for DLC)</label>
+		<select name="chooseExtension" id="chooseExtension">
+			<option disabled selected value> -- choose game -- </option>
+			{{#each games}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+
+
+		<fieldset id="chooseFeatures">
+			<legend>Game Features</legend>
+			{{#each features}}
+			<input type="checkbox" name="chooseFeatures[]" value="{{_id}}" id="feature_{{title}}"> <label for="feature_{{title}}">{{title}}</label> 
+			{{/each}}
+		</fieldset>
+	</div>
+
+	<div id="addSession" data-update="session" class="choose-action-options">
+	<label for="chooseGamePlayed">Game</label>
+		<select name="chooseGamePlayed" id="chooseGamePlayed">
+			{{#each games}}
+			<option value="{{_id}}">{{title}}</option>
+			{{/each}}
+		</select>
+
+		<label for="purchaseDate">Purchase Date:</label>
+		<input type="date" id="purchaseDate" name="purchaseDate">
+
+		<label for="startDate">Start Date:</label>
+		<input type="date" id="startDate" name="startDate">
+
+		<label for="finishDate">Finish Date:</label>
+		<input type="date" id="finishDate" name="finishDate">
+
+		<label for="hoursPlayed">Hours Played</label>
+		<input type="number" name="hoursPlayed" id="hoursPlayed" placeholder="Hours Played">
+	</div>
+
+	<div id="addFeature" data-update="feature" class="choose-action-options">
+		<label for="featureTitle">Feature name</label>
+		<input type="text" name="featureTitle" id="featureTitle" placeholder="Title">
+
+		<label for="featureDescription">Feature description</label>
+		<input type="text" name="description" id="featureDescription" placeholder="description">
+	</div>
+
+	<div id="addPlatform" data-update="platform" class="choose-action-options">
+		<label for="platformTitle">Platform name</label>
+		<input type="text" name="platformTitle" id="platformTitle" placeholder="Title">
+
+
+		<label for="platformReleaseDate">Release Date:</label>
+		<input type="date" name="platformReleaseDate" id="platformReleaseDate">
+	</div>
+
+	<div id="addGenre" data-update="genre" class="choose-action-options">
+		<label for="genreTitle">Genre title</label>
+		<input type="text" name="genreTitle" id="genreTitle" placeholder="Title">
+	</div>
+
+	<input type="submit" value="Submit">
+</form>

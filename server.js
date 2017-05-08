@@ -114,7 +114,7 @@ app.all('/', function(req, res) {
 	Promise.all([p1,p2,p3,p4,p5])
 	.then(function(results) {
 		console.log("promises resolved", results[4]);
-		res.render('index', {
+		res.render('pages/index', {
 			games: results[0],
 			genres: results[1],
 			features: results[2],
@@ -126,6 +126,7 @@ app.all('/', function(req, res) {
 
 // Other routes
 app.use('/game/', require('./routes/view-game.js'));
+app.use('/add-new', require('./routes/add-new.js'));
 
 
 app.use(router);
