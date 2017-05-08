@@ -8,7 +8,7 @@ router.get('/:id', function(req, res) {
 	.populate(['features', 'platforms', 'genres'])
 	.then(function(game) {
 		console.log(game);
-		res.render('view-game.handlebars', {
+		res.render('pages/view-game.handlebars', {
 			game: game,
 			layout: 'main.handlebars'
 		});
