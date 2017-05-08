@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	$('#choose-action').on('change', function(e) {
+	$('#chooseAction').on('change', function(e) {
 		$('.choose-action-options').hide();
-		var action = $('#choose-action option:selected').val();
+		var action = $('#chooseAction option:selected').val();
 		switch(action) {
 			case 'game':
 				$('#addGame').show();
